@@ -91,15 +91,15 @@ function translationEn() {
       @click="toggleSideBar"
     >
       <svg
-        :fill="useEpThemeStoreHook().fill"
         :class="[
           'hamburger',
           pureApp.sidebar.opened ? 'is-active-hamburger' : ''
         ]"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-        width="64"
+        :fill="useEpThemeStoreHook().fill"
         height="64"
+        viewBox="0 0 1024 1024"
+        width="64"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 0 0 0-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0 0 14.4 7z"
@@ -109,8 +109,8 @@ function translationEn() {
     <el-menu
       ref="menu"
       class="horizontal-header-menu"
-      mode="horizontal"
       :default-active="defaultActive"
+      mode="horizontal"
       router
       @select="indexPath => menuSelect(indexPath, routers)"
     >
@@ -126,11 +126,11 @@ function translationEn() {
           <span>{{ transformI18n(route.meta.title) }}</span>
           <FontIcon
             v-if="route.meta.extraIcon"
-            width="30px"
             height="30px"
-            style="position: absolute; right: 10px"
             :icon="route.meta.extraIcon.name"
+            style="position: absolute; right: 10px"
             :svg="route.meta.extraIcon.svg ? true : false"
+            width="30px"
           />
         </template>
       </el-menu-item>
@@ -141,7 +141,7 @@ function translationEn() {
       <!-- 通知 -->
       <Notice id="header-notice" />
       <!-- 全屏 -->
-      <screenfull id="header-screenfull" v-show="!deviceDetection()" />
+      <screenfull v-show="!deviceDetection()" id="header-screenfull" />
       <!-- 国际化 -->
       <el-dropdown id="header-translation" trigger="click">
         <globalization />
@@ -150,14 +150,14 @@ function translationEn() {
             <el-dropdown-item
               :style="getDropdownItemStyle(locale, 'zh')"
               @click="translationCh"
-              ><span class="check-zh" v-show="locale === 'zh'"
+              ><span v-show="locale === 'zh'" class="check-zh"
                 ><IconifyIconOffline icon="check" /></span
               >简体中文</el-dropdown-item
             >
             <el-dropdown-item
               :style="getDropdownItemStyle(locale, 'en')"
               @click="translationEn"
-              ><span class="check-en" v-show="locale === 'en'"
+              ><span v-show="locale === 'en'" class="check-en"
                 ><IconifyIconOffline icon="check" /></span
               >English</el-dropdown-item
             >

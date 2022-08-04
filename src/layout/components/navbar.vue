@@ -50,8 +50,8 @@ function translationEn() {
   <div class="navbar">
     <Hamburger
       v-if="pureApp.layout !== 'mix'"
-      :is-active="pureApp.sidebar.opened"
       class="hamburger-container"
+      :is-active="pureApp.sidebar.opened"
       @toggleClick="toggleSideBar"
     />
 
@@ -65,7 +65,7 @@ function translationEn() {
       <!-- 通知 -->
       <Notice id="header-notice" />
       <!-- 全屏 -->
-      <screenfull id="header-screenfull" v-show="!deviceDetection()" />
+      <screenfull v-show="!deviceDetection()" id="header-screenfull" />
       <!-- 国际化 -->
       <el-dropdown id="header-translation" trigger="click">
         <globalization />
@@ -75,8 +75,8 @@ function translationEn() {
               :style="getDropdownItemStyle(locale, 'zh')"
               @click="translationCh"
               ><IconifyIconOffline
-                class="check-zh"
                 v-show="locale === 'zh'"
+                class="check-zh"
                 icon="check"
               />简体中文</el-dropdown-item
             >
@@ -84,7 +84,7 @@ function translationEn() {
               :style="getDropdownItemStyle(locale, 'en')"
               @click="translationEn"
             >
-              <span class="check-en" v-show="locale === 'en'">
+              <span v-show="locale === 'en'" class="check-en">
                 <IconifyIconOffline icon="check" /> </span
               >English
             </el-dropdown-item>

@@ -639,16 +639,16 @@ const getContextMenuStyle = computed((): CSSProperties => {
 </script>
 
 <template>
-  <div ref="containerDom" class="tags-view" v-if="!showTags">
+  <div v-if="!showTags" ref="containerDom" class="tags-view">
     <div class="arrow-left">
       <IconifyIconOffline icon="arrow-left-s-line" @click="handleScroll(200)" />
     </div>
     <div ref="scrollbarDom" class="scroll-container">
-      <div class="tab" ref="tabDom" :style="getTabStyle">
+      <div ref="tabDom" class="tab" :style="getTabStyle">
         <div
-          :ref="'dynamic' + index"
           v-for="(item, index) in multiTags"
           :key="index"
+          :ref="'dynamic' + index"
           :class="[
             'scroll-item is-closable',
             linkIsActive(item),
@@ -656,10 +656,10 @@ const getContextMenuStyle = computed((): CSSProperties => {
               ? 'card-active'
               : ''
           ]"
+          @click="tagOnClick(item)"
           @contextmenu.prevent="openMenu(item, $event)"
           @mouseenter.prevent="onMouseenter(index)"
           @mouseleave.prevent="onMouseleave(index)"
-          @click="tagOnClick(item)"
         >
           <router-link :to="item.path"
             >{{ transformI18n(item.meta.title) }}
@@ -675,8 +675,8 @@ const getContextMenuStyle = computed((): CSSProperties => {
             <IconifyIconOffline icon="close-bold" />
           </span>
           <div
-            :ref="'schedule' + index"
             v-if="showModel !== 'card'"
+            :ref="'schedule' + index"
             :class="[scheduleIsActive(item)]"
           />
         </div>
@@ -693,8 +693,8 @@ const getContextMenuStyle = computed((): CSSProperties => {
       <ul
         v-show="visible"
         :key="Math.random()"
-        :style="getContextMenuStyle"
         class="contextmenu"
+        :style="getContextMenuStyle"
       >
         <div
           v-for="(item, key) in tagsViews"
@@ -712,8 +712,8 @@ const getContextMenuStyle = computed((): CSSProperties => {
     <ul class="right-button">
       <li>
         <span
-          :title="t('buttons.hsrefreshRoute')"
           class="el-icon-refresh-right rotate"
+          :title="t('buttons.hsrefreshRoute')"
           @click="onFresh"
         >
           <IconifyIconOffline icon="refresh-right" />
@@ -721,8 +721,8 @@ const getContextMenuStyle = computed((): CSSProperties => {
       </li>
       <li>
         <el-dropdown
-          trigger="click"
           placement="bottom-end"
+          trigger="click"
           @command="handleCommand"
         >
           <IconifyIconOffline icon="arrow-down" />
@@ -732,8 +732,8 @@ const getContextMenuStyle = computed((): CSSProperties => {
                 v-for="(item, key) in tagsViews"
                 :key="key"
                 :command="{ key, item }"
-                :divided="item.divided"
                 :disabled="item.disabled"
+                :divided="item.divided"
               >
                 <component
                   :is="toRaw(item.icon)"

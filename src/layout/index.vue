@@ -203,7 +203,7 @@ const layoutHeader = defineComponent({
 </script>
 
 <template>
-  <div :class="['app-wrapper', set.classes]" v-resize>
+  <div v-resize :class="['app-wrapper', set.classes]">
     <div
       v-show="
         set.device === 'mobile' &&
@@ -232,8 +232,8 @@ const layoutHeader = defineComponent({
       </div>
       <el-scrollbar v-else>
         <el-backtop
-          title="回到顶部"
           target=".main-container .el-scrollbar__wrap"
+          title="回到顶部"
           ><backTop />
         </el-backtop>
         <layout-header />

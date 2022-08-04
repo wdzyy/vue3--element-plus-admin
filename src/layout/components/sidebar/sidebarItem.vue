@@ -144,11 +144,11 @@ function resolvePath(routePath) {
     "
   >
     <el-menu-item
-      :index="resolvePath(onlyOneChild.path)"
       :class="{ 'submenu-title-noDropdown': !isNest }"
+      :index="resolvePath(onlyOneChild.path)"
       :style="getNoDropdownStyle"
     >
-      <div class="sub-menu-icon" v-show="props.item.meta.icon">
+      <div v-show="props.item.meta.icon" class="sub-menu-icon">
         <component
           :is="
             useRenderIcon(
@@ -177,9 +177,9 @@ function resolvePath(routePath) {
           }}</span>
           <el-tooltip
             v-else
-            placement="top"
-            :offset="-10"
             :disabled="!onlyOneChild.showTooltip"
+            :offset="-10"
+            placement="top"
           >
             <template #content>
               {{ transformI18n(onlyOneChild.meta.title) }}
@@ -194,11 +194,11 @@ function resolvePath(routePath) {
           </el-tooltip>
           <FontIcon
             v-if="onlyOneChild.meta.extraIcon"
-            width="30px"
             height="30px"
-            :style="getExtraIconStyle"
             :icon="onlyOneChild.meta.extraIcon.name"
+            :style="getExtraIconStyle"
             :svg="onlyOneChild.meta.extraIcon.svg ? true : false"
+            width="30px"
           />
         </div>
       </template>
@@ -220,9 +220,9 @@ function resolvePath(routePath) {
       <span v-if="!menuMode">{{ transformI18n(props.item.meta.title) }}</span>
       <el-tooltip
         v-else
-        placement="top"
-        :offset="-10"
         :disabled="!pureApp.sidebar.opened || !props.item.showTooltip"
+        :offset="-10"
+        placement="top"
       >
         <template #content>
           {{ transformI18n(props.item.meta.title) }}
@@ -239,20 +239,20 @@ function resolvePath(routePath) {
       </el-tooltip>
       <FontIcon
         v-if="props.item.meta.extraIcon"
-        width="30px"
         height="30px"
-        style="position: absolute; right: 10px"
         :icon="props.item.meta.extraIcon.name"
+        style="position: absolute; right: 10px"
         :svg="props.item.meta.extraIcon.svg ? true : false"
+        width="30px"
       />
     </template>
     <sidebar-item
       v-for="child in props.item.children"
       :key="child.path"
-      :is-nest="true"
-      :item="child"
       :base-path="resolvePath(child.path)"
       class="nest-menu"
+      :is-nest="true"
+      :item="child"
     />
   </el-sub-menu>
 </template>

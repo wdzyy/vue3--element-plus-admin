@@ -130,7 +130,7 @@ onKeyStroke("ArrowDown", handleDown);
 </script>
 
 <template>
-  <el-dialog top="5vh" v-model="show" :before-close="handleClose">
+  <el-dialog v-model="show" :before-close="handleClose" top="5vh">
     <el-input
       ref="inputRef"
       v-model="keyword"

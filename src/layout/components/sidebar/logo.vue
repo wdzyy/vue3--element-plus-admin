@@ -14,21 +14,21 @@ const title =
       <router-link
         v-if="props.collapse"
         key="props.collapse"
-        :title="title"
         class="sidebar-logo-link"
+        :title="title"
         to="/"
       >
-        <FontIcon icon="team-iconlogo" svg style="width: 35px; height: 35px" />
+        <FontIcon icon="team-iconlogo" style="width: 35px; height: 35px" svg />
         <span class="sidebar-title">{{ title }}</span>
       </router-link>
       <router-link
         v-else
         key="expand"
-        :title="title"
         class="sidebar-logo-link"
+        :title="title"
         to="/"
       >
-        <FontIcon icon="team-iconlogo" svg style="width: 35px; height: 35px" />
+        <FontIcon icon="team-iconlogo" style="width: 35px; height: 35px" svg />
         <span class="sidebar-title">{{ title }}</span>
       </router-link>
     </transition>

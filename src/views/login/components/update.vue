@@ -65,8 +65,8 @@ function onBack() {
     <Motion>
       <el-form-item prop="phone">
         <el-input
-          clearable
           v-model="ruleForm.phone"
+          clearable
           placeholder="手机号码"
           :prefix-icon="useRenderIcon('iphone')"
         />
@@ -77,13 +77,13 @@ function onBack() {
       <el-form-item prop="verifyCode">
         <div class="w-full flex justify-between">
           <el-input
-            clearable
             v-model="ruleForm.verifyCode"
+            clearable
             placeholder="短信验证码"
           />
           <el-button
-            :disabled="isDisabled"
             class="ml-2"
+            :disabled="isDisabled"
             @click="useVerifyCode().start(ruleFormRef, 'phone')"
           >
             {{ text }}
@@ -95,23 +95,23 @@ function onBack() {
     <Motion :delay="150">
       <el-form-item prop="password">
         <el-input
-          clearable
-          show-password
           v-model="ruleForm.password"
+          clearable
           placeholder="密码"
           :prefix-icon="useRenderIcon('lock')"
+          show-password
         />
       </el-form-item>
     </Motion>
 
     <Motion :delay="200">
-      <el-form-item :rules="repeatPasswordRule" prop="repeatPassword">
+      <el-form-item prop="repeatPassword" :rules="repeatPasswordRule">
         <el-input
-          clearable
-          show-password
           v-model="ruleForm.repeatPassword"
+          clearable
           placeholder="确认密码"
           :prefix-icon="useRenderIcon('lock')"
+          show-password
         />
       </el-form-item>
     </Motion>
@@ -120,9 +120,9 @@ function onBack() {
       <el-form-item>
         <el-button
           class="w-full"
+          :loading="loading"
           size="default"
           type="primary"
-          :loading="loading"
           @click="onUpdate(ruleFormRef)"
         >
           确定

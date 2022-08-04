@@ -7,12 +7,8 @@ import noExist from "/@/assets/status/404.svg?component";
     <noExist />
     <div class="ml-12">
       <p
-        class="font-medium text-4xl mb-4"
         v-motion
-        :initial="{
-          opacity: 0,
-          y: 100
-        }"
+        class="font-medium text-4xl mb-4"
         :enter="{
           opacity: 1,
           y: 0,
@@ -20,16 +16,16 @@ import noExist from "/@/assets/status/404.svg?component";
             delay: 100
           }
         }"
-      >
-        404
-      </p>
-      <p
-        class="mb-4 text-gray-500"
-        v-motion
         :initial="{
           opacity: 0,
           y: 100
         }"
+      >
+        404
+      </p>
+      <p
+        v-motion
+        class="mb-4 text-gray-500"
         :enter="{
           opacity: 1,
           y: 0,
@@ -37,17 +33,15 @@ import noExist from "/@/assets/status/404.svg?component";
             delay: 300
           }
         }"
-      >
-        抱歉，你访问的页面不存在
-      </p>
-      <el-button
-        type="primary"
-        @click="$router.push('/')"
-        v-motion
         :initial="{
           opacity: 0,
           y: 100
         }"
+      >
+        抱歉，你访问的页面不存在
+      </p>
+      <el-button
+        v-motion
         :enter="{
           opacity: 1,
           y: 0,
@@ -55,6 +49,12 @@ import noExist from "/@/assets/status/404.svg?component";
             delay: 500
           }
         }"
+        :initial="{
+          opacity: 0,
+          y: 100
+        }"
+        type="primary"
+        @click="$router.push('/')"
         >返回首页</el-button
       >
     </div>

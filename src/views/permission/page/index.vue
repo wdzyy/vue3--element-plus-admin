@@ -42,9 +42,9 @@ function changRole() {
       </div>
     </template>
     <el-button
+      :icon="useRenderIcon('user', { color: '#fff' })"
       type="primary"
       @click="changRole"
-      :icon="useRenderIcon('user', { color: '#fff' })"
       >切换角色</el-button
     >
   </el-card>

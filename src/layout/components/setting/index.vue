@@ -309,10 +309,10 @@ nextTick(() => {
     <el-divider>主题</el-divider>
     <el-switch
       v-model="dataTheme"
-      inline-prompt
-      class="pure-datatheme"
       :active-icon="dayIcon"
+      class="pure-datatheme"
       :inactive-icon="darkIcon"
+      inline-prompt
       @change="dataThemeChange"
     />
 
@@ -320,8 +320,8 @@ nextTick(() => {
     <ul class="pure-theme">
       <el-tooltip class="item" content="左侧模式" placement="bottom">
         <li
-          :class="layoutTheme.layout === 'vertical' ? $style.isSelect : ''"
           ref="verticalRef"
+          :class="layoutTheme.layout === 'vertical' ? $style.isSelect : ''"
           @click="setLayoutModel('vertical')"
         >
           <div />
@@ -331,8 +331,8 @@ nextTick(() => {
 
       <el-tooltip class="item" content="顶部模式" placement="bottom">
         <li
-          :class="layoutTheme.layout === 'horizontal' ? $style.isSelect : ''"
           ref="horizontalRef"
+          :class="layoutTheme.layout === 'horizontal' ? $style.isSelect : ''"
           @click="setLayoutModel('horizontal')"
         >
           <div />
@@ -342,8 +342,8 @@ nextTick(() => {
 
       <el-tooltip class="item" content="混合模式" placement="bottom">
         <li
-          :class="layoutTheme.layout === 'mix' ? $style.isSelect : ''"
           ref="mixRef"
+          :class="layoutTheme.layout === 'mix' ? $style.isSelect : ''"
           @click="setLayoutModel('mix')"
         >
           <div />
@@ -353,7 +353,7 @@ nextTick(() => {
     </ul>
 
     <el-divider v-show="!dataTheme">主题色</el-divider>
-    <ul class="theme-color" v-show="!dataTheme">
+    <ul v-show="!dataTheme" class="theme-color">
       <li
         v-for="(item, index) in themeColors"
         :key="index"
@@ -361,9 +361,9 @@ nextTick(() => {
         @click="setLayoutThemeColor(item.themeColor)"
       >
         <el-icon
-          style="margin: 0.1em 0.1em 0 0"
-          :size="17"
           :color="getThemeColor(item.themeColor)"
+          :size="17"
+          style="margin: 0.1em 0.1em 0 0"
         >
           <IconifyIconOffline icon="check" />
         </el-icon>
@@ -376,10 +376,10 @@ nextTick(() => {
         <span>灰色模式</span>
         <el-switch
           v-model="settings.greyVal"
-          inline-prompt
-          inactive-color="#a6a6a6"
           active-text="开"
+          inactive-color="#a6a6a6"
           inactive-text="关"
+          inline-prompt
           @change="greyChange"
         />
       </li>
@@ -387,10 +387,10 @@ nextTick(() => {
         <span>色弱模式</span>
         <el-switch
           v-model="settings.weakVal"
-          inline-prompt
-          inactive-color="#a6a6a6"
           active-text="开"
+          inactive-color="#a6a6a6"
           inactive-text="关"
+          inline-prompt
           @change="weekChange"
         />
       </li>
@@ -398,10 +398,10 @@ nextTick(() => {
         <span>隐藏标签页</span>
         <el-switch
           v-model="settings.tabsVal"
-          inline-prompt
-          inactive-color="#a6a6a6"
           active-text="开"
+          inactive-color="#a6a6a6"
           inactive-text="关"
+          inline-prompt
           @change="tagsChange"
         />
       </li>
@@ -409,12 +409,12 @@ nextTick(() => {
         <span>侧边栏Logo</span>
         <el-switch
           v-model="logoVal"
-          inline-prompt
-          :active-value="true"
-          :inactive-value="false"
-          inactive-color="#a6a6a6"
           active-text="开"
+          :active-value="true"
+          inactive-color="#a6a6a6"
           inactive-text="关"
+          :inactive-value="false"
+          inline-prompt
           @change="logoChange"
         />
       </li>
@@ -422,10 +422,10 @@ nextTick(() => {
         <span>标签页持久化</span>
         <el-switch
           v-model="settings.multiTagsCache"
-          inline-prompt
-          inactive-color="#a6a6a6"
           active-text="开"
+          inactive-color="#a6a6a6"
           inactive-text="关"
+          inline-prompt
           @change="multiTagsCacheChange"
         />
       </li>
@@ -441,15 +441,15 @@ nextTick(() => {
 
     <el-divider />
     <el-button
-      type="danger"
       style="width: 90%; margin: 24px 15px"
+      type="danger"
       @click="onReset"
     >
       <IconifyIconOffline
-        icon="logout-circle-r-line"
-        width="15"
         height="15"
+        icon="logout-circle-r-line"
         style="margin-right: 4px"
+        width="15"
       />
       清空缓存并返回登录页</el-button
     >

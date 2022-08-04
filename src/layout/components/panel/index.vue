@@ -16,13 +16,13 @@ emitter.on("openPanel", () => {
 </script>
 
 <template>
-  <div :class="{ show: show }" class="right-panel-container">
+  <div class="right-panel-container" :class="{ show: show }">
     <div class="right-panel-background" />
     <div ref="target" class="right-panel">
       <div class="right-panel-items">
         <div class="project-configuration">
           <h3>项目配置</h3>
-          <el-icon title="关闭配置" class="el-icon-close" @click="show = !show">
+          <el-icon class="el-icon-close" title="关闭配置" @click="show = !show">
             <IconifyIconOffline icon="close-bold" />
           </el-icon>
         </div>

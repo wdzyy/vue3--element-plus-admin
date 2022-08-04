@@ -70,22 +70,22 @@ function translationEn() {
 <template>
   <div class="horizontal-header">
     <div class="horizontal-header-left" @click="backHome">
-      <FontIcon icon="team-iconlogo" svg style="width: 35px; height: 35px" />
+      <FontIcon icon="team-iconlogo" style="width: 35px; height: 35px" svg />
       <h4>{{ title }}</h4>
     </div>
     <el-menu
       ref="menu"
       class="horizontal-header-menu"
-      mode="horizontal"
       :default-active="route.path"
+      mode="horizontal"
       router
       @select="indexPath => menuSelect(indexPath, routers)"
     >
       <sidebar-item
         v-for="route in usePermissionStoreHook().wholeMenus"
         :key="route.path"
-        :item="route"
         :base-path="route.path"
+        :item="route"
       />
     </el-menu>
     <div class="horizontal-header-right">
@@ -94,7 +94,7 @@ function translationEn() {
       <!-- 通知 -->
       <Notice id="header-notice" />
       <!-- 全屏 -->
-      <screenfull id="header-screenfull" v-show="!deviceDetection()" />
+      <screenfull v-show="!deviceDetection()" id="header-screenfull" />
       <!-- 国际化 -->
       <el-dropdown id="header-translation" trigger="click">
         <globalization />
@@ -104,7 +104,7 @@ function translationEn() {
               :style="getDropdownItemStyle(locale, 'zh')"
               @click="translationCh"
             >
-              <span class="check-zh" v-show="locale === 'zh'">
+              <span v-show="locale === 'zh'" class="check-zh">
                 <IconifyIconOffline icon="check" /> </span
               >简体中文
             </el-dropdown-item>
@@ -112,7 +112,7 @@ function translationEn() {
               :style="getDropdownItemStyle(locale, 'en')"
               @click="translationEn"
             >
-              <span class="check-en" v-show="locale === 'en'">
+              <span v-show="locale === 'en'" class="check-en">
                 <IconifyIconOffline icon="check" /> </span
               >English</el-dropdown-item
             >

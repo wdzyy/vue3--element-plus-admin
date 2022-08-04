@@ -65,7 +65,7 @@ watch(imgCode, value => {
 </script>
 
 <template>
-  <img :src="bg" class="wave" />
+  <img class="wave" :src="bg" />
   <div class="login-container">
     <div class="img">
       <component :is="currentWeek" />
@@ -88,8 +88,8 @@ watch(imgCode, value => {
           <Motion :delay="100">
             <el-form-item prop="username">
               <el-input
-                clearable
                 v-model="ruleForm.username"
+                clearable
                 placeholder="账号"
                 :prefix-icon="useRenderIcon('user')"
               />
@@ -99,11 +99,11 @@ watch(imgCode, value => {
           <Motion :delay="150">
             <el-form-item prop="password">
               <el-input
-                clearable
-                show-password
                 v-model="ruleForm.password"
+                clearable
                 placeholder="密码"
                 :prefix-icon="useRenderIcon('lock')"
+                show-password
               />
             </el-form-item>
           </Motion>
@@ -111,8 +111,8 @@ watch(imgCode, value => {
           <Motion :delay="200">
             <el-form-item prop="verifyCode">
               <el-input
-                clearable
                 v-model="ruleForm.verifyCode"
+                clearable
                 placeholder="验证码"
               >
                 <template v-slot:append>
@@ -135,9 +135,9 @@ watch(imgCode, value => {
               </div>
               <el-button
                 class="w-full mt-4"
+                :loading="loading"
                 size="default"
                 type="primary"
-                :loading="loading"
                 @click="onLogin(ruleFormRef)"
               >
                 登录
@@ -174,9 +174,9 @@ watch(imgCode, value => {
                 :title="`${item.title}登陆`"
               >
                 <IconifyIconOnline
+                  class="cursor-pointer text-gray-500 hover:text-blue-400"
                   :icon="`ri:${item.icon}-fill`"
                   width="20"
-                  class="cursor-pointer text-gray-500 hover:text-blue-400"
                 />
               </span>
             </div>

@@ -44,6 +44,12 @@ const getSectionStyle = computed(() => {
 });
 
 const transitionMain = defineComponent({
+  props: {
+    route: {
+      type: undefined,
+      required: true
+    }
+  },
   render() {
     return h(
       Transition,
@@ -68,12 +74,6 @@ const transitionMain = defineComponent({
         default: () => [this.$slots.default()]
       }
     );
-  },
-  props: {
-    route: {
-      type: undefined,
-      required: true
-    }
   }
 });
 </script>
@@ -86,7 +86,7 @@ const transitionMain = defineComponent({
     <router-view>
       <template #default="{ Component, route }">
         <el-scrollbar v-if="props.fixedHeader">
-          <el-backtop title="回到顶部" target=".app-main .el-scrollbar__wrap">
+          <el-backtop target=".app-main .el-scrollbar__wrap" title="回到顶部">
             <backTop />
           </el-backtop>
           <transitionMain :route="route">
@@ -101,8 +101,8 @@ const transitionMain = defineComponent({
               />
             </keep-alive>
             <component
-              v-else
               :is="Component"
+              v-else
               :key="route.fullPath"
               class="main-content"
             />
@@ -121,8 +121,8 @@ const transitionMain = defineComponent({
               />
             </keep-alive>
             <component
-              v-else
               :is="Component"
+              v-else
               :key="route.fullPath"
               class="main-content"
             />

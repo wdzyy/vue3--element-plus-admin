@@ -21,9 +21,9 @@ function tabClick() {
 </script>
 
 <template>
-  <el-dropdown ref="dropdownDom" trigger="click" placement="bottom-end">
+  <el-dropdown ref="dropdownDom" placement="bottom-end" trigger="click">
     <span class="dropdown-badge">
-      <el-badge :value="noticesNum" :max="99">
+      <el-badge :max="99" :value="noticesNum">
         <span class="header-notice-icon">
           <IconifyIconOffline icon="bell" />
         </span>
@@ -32,9 +32,9 @@ function tabClick() {
     <template #dropdown>
       <el-dropdown-menu>
         <Tabs
+          v-model:activeName="activeName"
           centered
           class="dropdown-tabs"
-          v-model:activeName="activeName"
           @tabClick="tabClick"
         >
           <template v-for="item in notices" :key="item.key">

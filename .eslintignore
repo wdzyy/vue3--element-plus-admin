@@ -2,3 +2,12 @@ public
 dist
 *.d.ts
 package.json
+src/assets
+src/icons
+node_modules
+.vscode
+.idea
+*.md
+*.woff
+*.ttf
+.husky

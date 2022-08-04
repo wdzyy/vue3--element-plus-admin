@@ -44,8 +44,8 @@ function onBack() {
     <Motion>
       <el-form-item prop="phone">
         <el-input
-          clearable
           v-model="ruleForm.phone"
+          clearable
           placeholder="手机号码"
           :prefix-icon="useRenderIcon('iphone')"
         />
@@ -56,13 +56,13 @@ function onBack() {
       <el-form-item prop="verifyCode">
         <div class="w-full flex justify-between">
           <el-input
-            clearable
             v-model="ruleForm.verifyCode"
+            clearable
             placeholder="短信验证码"
           />
           <el-button
-            :disabled="isDisabled"
             class="ml-2"
+            :disabled="isDisabled"
             @click="useVerifyCode().start(ruleFormRef, 'phone')"
           >
             {{ text }}
@@ -75,9 +75,9 @@ function onBack() {
       <el-form-item>
         <el-button
           class="w-full"
+          :loading="loading"
           size="default"
           type="primary"
-          :loading="loading"
           @click="onLogin(ruleFormRef)"
         >
           登陆

@@ -5,8 +5,8 @@
       确认
     </span>
     <span class="search-footer-item">
-      <IconifyIconOffline icon="arrow-up-line" class="icon" />
-      <IconifyIconOffline icon="arrow-down-line" class="icon" />
+      <IconifyIconOffline class="icon" icon="arrow-up-line" />
+      <IconifyIconOffline class="icon" icon="arrow-down-line" />
       切换
     </span>
     <span class="search-footer-item">
